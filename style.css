@@ -1,0 +1,180 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #484848;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.container {
+  width: 90%;
+  background: #494848;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+p {
+  margin: 15px;
+  line-height: 25px;
+  letter-spacing: medium;
+}
+
+.main {
+  color: black;
+}
+
+h3, h2 {
+  color: #000000;
+}
+
+.form-section {
+  width: 40%;
+  background-color: #F9a602;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(12, 8, 8, 0.1);
+}
+
+.resume-preview {
+  width: 50%;
+  background-color: #F9a602;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(12, 8, 8, 0.1);
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+}
+
+form input, form textarea {
+  width: 90%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #90edef;
+  background-color: #D4D4D4;
+}
+
+.preview-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Button Styles */
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff; /* Change this color as needed */
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker shade for hover effect */
+}
+
+.download-button,.share-button,.edit-button,.save-button {
+  margin: 8px;
+}
+
+.resume-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #D4D4D4;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.aside {
+  background-color: #484848;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+h4 {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  margin: 5px;
+  width: 80%;
+  color: white;
+  background-color: #000066;
+  border-radius: 50px;
+}
+
+h3:hover, h4:hover {
+  text-transform: uppercase;
+}
+
+ul {
+  color: white;
+}
+
+ul li {
+  list-style-type: disc;
+  margin: 5px;
+  padding: 8px;
+  transition: background 0.3s;
+  border-radius: 5px;
+}
+
+#preview-name {
+  display: flex;
+  justify-content: left;
+  text-transform: uppercase;
+  font-size: xxx-large;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#profile-picture {
+  margin: 15px;
+  max-width: 150px;
+  border-radius: 50%;
+}
+
+.form-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+#upload-image {
+  width: 20%;
+  padding: 10px 10px;
+  margin-top: 15px;
+  height: 100%;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Specific Styles for Add and Remove Buttons */
+#add-education-button,
+#add-experience-button,
+.remove-education-button,
+.remove-experience-button {
+  margin-top: 10px;
+  display: inline-block; /* Ensures that the buttons stack properly */
+}
+
+/* Remove button specific styles */
+.remove-education-button,
+.remove-experience-button {
+  background-color: #dc3545; /* Red color for remove buttons */
+}
+
+.remove-education-button:hover,
+.remove-experience-button:hover {
+  background-color: #c82333; /* Darker red for hover effect */
+}
