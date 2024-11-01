@@ -1,18 +1,21 @@
+/* Global styles */
 body {
   font-family: Arial, sans-serif;
   background-color: #484848;
   margin: 0;
   padding: 0;
-  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
-  width: 90%;
-  background: #494848;
-  margin: auto;
+  width: 95%;
+  max-width: 1200px;
   padding: 20px;
+  margin: auto;
+  overflow: auto;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 p {
@@ -25,24 +28,30 @@ p {
   color: black;
 }
 
-h3, h2 {
+h2 {
+  font-size: xx-large;
+}
+
+h3,
+h2 {
   color: #000000;
 }
 
 .form-section {
-  width: 40%;
-  background-color: #F9a602;
+  width: 35%;
+  background-color: #f9a602;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(12, 8, 8, 0.1);
 }
 
 .resume-preview {
-  width: 50%;
-  background-color: #F9a602;
+  width: 55%;
+  background-color: #f9a602;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(12, 8, 8, 0.1);
+  overflow: auto;
 }
 
 form label {
@@ -50,19 +59,22 @@ form label {
   margin-top: 10px;
 }
 
-form input, form textarea {
+form input,
+form textarea {
   width: 90%;
   padding: 8px;
   margin-top: 5px;
   margin-bottom: 20px;
+  overflow: auto;
   border-radius: 5px;
   border: 1px solid #90edef;
-  background-color: #D4D4D4;
+  background-color: #d4d4d4;
 }
 
 .preview-head {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 /* Button Styles */
@@ -73,24 +85,29 @@ button {
   cursor: pointer;
   font-size: 16px;
   color: white;
-  background-color: #007bff; /* Change this color as needed */
+  background-color: #007bff;
   transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #0056b3; /* Darker shade for hover effect */
+  background-color: #0056b3;
 }
 
-.download-button,.share-button,.edit-button,.save-button {
+.download-button,
+.share-button,
+.edit-button,
+.save-button {
   margin: 8px;
 }
 
 .resume-container {
+  width: auto;
   display: flex;
   justify-content: space-between;
-  background-color: #D4D4D4;
+  background-color: #d4d4d4;
   padding: 15px;
   border-radius: 10px;
+  overflow: auto;
 }
 
 .aside {
@@ -112,7 +129,8 @@ h4 {
   border-radius: 50px;
 }
 
-h3:hover, h4:hover {
+h3:hover,
+h4:hover {
   text-transform: uppercase;
 }
 
@@ -133,7 +151,7 @@ ul li {
   justify-content: left;
   text-transform: uppercase;
   font-size: xxx-large;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 #profile-picture {
@@ -142,13 +160,8 @@ ul li {
   border-radius: 50%;
 }
 
-.form-head {
-  display: flex;
-  justify-content: space-between;
-}
-
 #upload-image {
-  width: 20%;
+  width: 45%;
   padding: 10px 10px;
   margin-top: 15px;
   height: 100%;
@@ -165,16 +178,66 @@ ul li {
 .remove-education-button,
 .remove-experience-button {
   margin-top: 10px;
-  display: inline-block; /* Ensures that the buttons stack properly */
+  display: inline-block;
 }
 
-/* Remove button specific styles */
 .remove-education-button,
 .remove-experience-button {
-  background-color: #dc3545; /* Red color for remove buttons */
+  background-color: #dc3545;
 }
 
 .remove-education-button:hover,
 .remove-experience-button:hover {
-  background-color: #c82333; /* Darker red for hover effect */
+  background-color: #c82333;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .form-section,
+  .resume-preview {
+    width: 90%;
+  }
+
+  .resume-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .preview-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #upload-image {
+    width: 50%;
+  }
+
+  #preview-name {
+    font-size: 24px;
+  }
+
+  h4 {
+    width: 100%;
+  }
+
+  button {
+    width: 90%;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  form input,
+  form textarea {
+    width: 90%;
+  }
+
+  button {
+    font-size: 14px;
+  }
 }

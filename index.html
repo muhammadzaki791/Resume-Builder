@@ -1,113 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Resume Builder</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
-</head>
-<body>
-  <div class="container">
-    <!-- Form for User Input -->
-    <section class="form-section">
-      <div class="form-head">
-        <h2>Build Your Resume</h2>
-        <input type="file" id="upload-image" accept="image/*" />
-      </div>
-      <form id="resume-form">
-        <label for="username">Username:</label>
-        <input type="text" id="username" required>
-
-        <label for="name">Name:</label>
-        <input type="text" id="name" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" required>
-
-        <label for="about">About:</label>
-        <textarea id="about" required></textarea>
-
-        <!-- Dynamic Education Entries -->
-        <div id="education-container">
-          <label>Education:</label>
-          <div class="education-entry">
-            <input type="text" placeholder="Institute" class="education-institute" required>
-            <input type="text" placeholder="Degree" class="education-degree" required>
-            <button type="button" class="remove-education-button">Remove Education</button>
-          </div>
-          <button type="button" id="add-education-button">Add Education</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Resume Builder</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Form for User Input -->
+      <section class="form-section">
+        <div>
+          <h2>Build Your Resume</h2>
+          <input type="file" id="upload-image" accept="image/*" />
         </div>
+        <form id="resume-form">
+          <label for="name">Name:</label>
+          <input type="text" id="name" required />
 
-        <!-- Dynamic Experience Entries -->
-        <div id="experience-container">
-          <label>Work Experience:</label>
-          <div class="experience-entry">
-            <input type="text" placeholder="Company Name" class="experience-company" required>
-            <input type="text" placeholder="Designation" class="experience-designation" required>
-            <button type="button" class="remove-experience-button">Remove Experience</button>
+          <label for="email">Email:</label>
+          <input type="email" id="email" required />
+
+          <label for="about">About:</label>
+          <textarea id="about" required></textarea>
+
+          <!-- Dynamic Education Entries -->
+          <div id="education-container">
+            <label>Education:</label>
+            <div class="education-entry">
+              <input
+                type="text"
+                placeholder="Institute"
+                class="education-institute"
+                required
+              />
+              <input
+                type="text"
+                placeholder="Degree"
+                class="education-degree"
+                required
+              />
+              <button type="button" class="remove-education-button">
+                Remove Education
+              </button>
+            </div>
+            <button type="button" id="add-education-button">
+              Add Education
+            </button>
           </div>
-          <button type="button" id="add-experience-button">Add Experience</button>
+
+          <!-- Dynamic Experience Entries -->
+          <div id="experience-container">
+            <label>Work Experience:</label>
+            <div class="experience-entry">
+              <input
+                type="text"
+                placeholder="Company Name"
+                class="experience-company"
+                required
+              />
+              <input
+                type="text"
+                placeholder="Designation"
+                class="experience-designation"
+                required
+              />
+              <button type="button" class="remove-experience-button">
+                Remove Experience
+              </button>
+            </div>
+            <button type="button" id="add-experience-button">
+              Add Experience
+            </button>
+          </div>
+
+          <label for="skills">Skills (comma-separated):</label>
+          <input type="text" id="skills" required />
+
+          <label for="projects">Projects (comma-separated, optional):</label>
+          <textarea id="projects"></textarea>
+
+          <button type="submit" class="generate-button">Generate Resume</button>
+        </form>
+      </section>
+
+      <!-- Resume Preview -->
+      <section class="resume-preview">
+        <h2>Your Resume</h2>
+        <div class="preview-head">
+          <button class="edit-button">Edit Resume</button>
+          <button class="save-button">Save Changes</button>
+          <button class="share-button">Share Resume</button>
+          <button type="button" class="download-button">Download</button>
         </div>
+        <div class="resume-container" id="resume-content">
+          <div class="aside">
+            <img id="profile-picture" alt="Profile Picture" />
 
-        <label for="skills">Skills (comma-separated):</label>
-        <input type="text" id="skills" required>
+            <p>Email: <span id="preview-email"></span></p>
 
-        <label for="projects">Projects (comma-separated, optional):</label>
-        <textarea id="projects"></textarea>
+            <div id="preview-skills">
+              <h4>Skills</h4>
+              <ul></ul>
+            </div>
 
-        <button type="submit" class="generate-button">Generate Resume</button>
-      </form>
-    </section>
-    
-    <!-- Resume Preview -->
-    <section class="resume-preview">
-      <h2>Your Resume</h2>
-      <div class="preview-head">
-        <button class="edit-button">Edit Resume</button>
-        <button class="save-button">Save Changes</button>
-        <button class="share-button">Share Resume</button>
-        <button type="button" class="download-button">Download</button>
-      </div>
-      <div class="resume-container" id="resume-content">
-        <div class="aside">
-          <img id="profile-picture" alt="Profile Picture">
-
-          <p>Email: <span id="preview-email"></span></p>
-          
-          <div id="preview-skills">
-            <h4>Skills</h4>
-            <ul></ul>
-          </div>
-          
-          <div id="preview-projects">
-            <h4>Projects</h4>
-            <ul></ul>
-          </div>
-        </div>
-
-        <div class="main">
-          <h3 id="preview-name"></h3>
-          
-          <div id="preview-about">
-            <h4>About</h4>
-            <p></p>
+            <div id="preview-projects">
+              <h4>Projects</h4>
+              <ul></ul>
+            </div>
           </div>
 
-          <div id="preview-education">
-            <h4>Education</h4>
-            <div></div>
-          </div>
-          
-          <div id="preview-experience">
-            <h4>Experience</h4>
-            <div></div>
+          <div class="main">
+            <h3 id="preview-name"></h3>
+
+            <div id="preview-about">
+              <h4>About</h4>
+              <p></p>
+            </div>
+
+            <div id="preview-education">
+              <h4>Education</h4>
+              <div></div>
+            </div>
+
+            <div id="preview-experience">
+              <h4>Experience</h4>
+              <div></div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  </div>
+      </section>
+    </div>
 
-  <script src="test.js"></script>
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>
