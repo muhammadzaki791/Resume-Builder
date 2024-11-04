@@ -222,7 +222,7 @@ ul li {
   }
 
   h4 {
-    width: 100%;
+    width: 90%;
   }
 
   button {
@@ -235,6 +235,10 @@ ul li {
   form input,
   form textarea {
     width: 90%;
+  }
+
+  .aside, .main, .resume-preview,.resume-container{
+    overflow:auto;
   }
 
   button {
